@@ -5,8 +5,10 @@ def exibir_menu():
     print("\n==== MENU ====")
     print("1 - Cadastrar Cliente")
     print("2 - Listar Clientes")
-    print("3 - Cadastar Produto")
+    print("3 - Cadastrar Produto")
     print("4 - Listar Produtos")
+    print("5 - Excluir Cliente")
+    print("6 - Excluir Produto")
     print("0 - Sair do Sistema")
 
 def main ():
@@ -43,6 +45,14 @@ def main ():
             produtos = cntrlProduto.listar_produtos()
             for index, produto in enumerate(produtos, 1):
                 print(f"{index}. {produto}")
+        
+        elif opc == "5":
+            cliente_id = int(input("ID do cliente a ser excluído:"))
+            cntrlCliente.excluir_cliente(cliente_id)
+
+        elif opc == "6":
+            produto_id = int(input("ID do produto a ser excluído:"))
+            cntrlProduto.excluir_produto(produto_id)
            
             
         elif opc == "0":
