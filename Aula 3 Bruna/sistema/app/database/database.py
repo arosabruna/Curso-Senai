@@ -32,9 +32,15 @@ class BancoFake:
             json.dump(self.dados, data, ensure_ascii=False, indent=4)
         
     
-    def adicionar_cliente(self, cliente_dict):
-        self.dados["clientes"].append(cliente_dict)
-        self._salvar()
+def adicionar_cliente(self, cliente_dict):
+    """
+    Adiciona um cliente ao banco de dados, gerando um ID sequencial automaticamente.
+    """
+    # Gera o próximo ID como o tamanho atual + 1 #
+    cliente_dict["id"] = len(self.dados["clientes"]) + 1
+    self.dados["clientes"].append(cliente_dict)
+    self._salvar()
+    print(f"Cliente adicionado com ID {cliente_dict['id']}")
 
     def listar_clientes(self):
         return self.dados["clientes"]
@@ -45,6 +51,14 @@ class BancoFake:
         self.dados["produtos"].append(produto_dict)
         self._salvar()
 
-    def listar_produtos(self):
-        return self.dados["produtos"]
+def adicionar_produto(self, produto_dict):
+    """
+    Adiciona um produto ao banco de dados, gerando um ID sequencial automaticamente.
+    """
+    # Gera o próximo ID como o tamanho atual + 1 #
+        
+    produto_dict["id"] = len(self.dados["produtos"]) + 1
+    self.dados["produtos"].append(produto_dict)
+    self._salvar()
+    print(f"Produto adicionado com ID {produto_dict['id']}")
     
